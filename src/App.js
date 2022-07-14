@@ -4,7 +4,7 @@ import PokemonMain from "./components/PokemonMain";
 
 function App() {
   return (
-    <PokemonMain value={""} />
+    <PokemonMain />
   );
 }
 

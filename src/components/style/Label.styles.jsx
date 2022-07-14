@@ -6,5 +6,6 @@ const Wrapper = styled.div`
   .title{
     font-size:26px;
   }
+  
 `;
 export default Wrapper;

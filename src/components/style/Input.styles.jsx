@@ -3,7 +3,7 @@ const Wrapper = styled.div`
   .input-element{
     display: flex;
     width: 400px;
-    justify-content: space-between;
+    justify-content: space-between;0
     align-items: center;
   }
   .input-container {
@@ -28,6 +28,13 @@ const Wrapper = styled.div`
   }
   .label-for-input{
     padding-bottom: 20px !important;
+  }
+  .input-regular{
+    padding:10px;
+  }
+  .label{
+    display: flex;
+    align-items: center;
   }
 `;
 export default Wrapper;

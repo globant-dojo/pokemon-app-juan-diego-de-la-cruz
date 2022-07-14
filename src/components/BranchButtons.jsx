@@ -1,8 +1,9 @@
+import Wrapper from "./style/BranchButtons.styles";
 import Button from "./Button";
 
 const BranchButtons = ({ pt = "", value, updateButton, isDisabled }) => {
   const handlerSave = () => {
-    if (value == 'UPDATE') {
+    if (value === 'UPDATE') {
       updateButton("UPDATE");
     } else {
       updateButton("SAVE");

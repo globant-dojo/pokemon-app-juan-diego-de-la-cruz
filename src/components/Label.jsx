@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import Wrapper from "./style/Label.styles";
 
-const Label = ({ text = "lorem", className }) => {
+const Label = ({ text = "lorem", className ='' }) => {
   const [inValue, setInValue] = useState(null);
 
   return (

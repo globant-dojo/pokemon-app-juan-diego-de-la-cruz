@@ -1,8 +1,4 @@
 import styled from '@emotion/styled';
-const Wrapper = styled.div`
-  .branch-buttons{
-    display: flex;
-    justify-content: space-evenly;
-  }
+const Wrapper = styled.div` 
 `;
 export default Wrapper;

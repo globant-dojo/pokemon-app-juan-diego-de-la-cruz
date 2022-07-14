@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import TestRenderer from 'react-test-renderer';
+import Input from '../components/Input';
 
-test('Label Component Test', () => {
+test('Input Component Test', () => {
 
 });

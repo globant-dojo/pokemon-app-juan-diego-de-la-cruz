@@ -1,12 +1,10 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import Wrapper from "./style/Input.styles";
 import Label from "./Label";
 
 const Input = ({ text = "btn", hasIcon = false, vertical=true, placeholder='',updateInput,value='',filterNow = ()=>{} }) => {
-  const [inValue, setInValue] = useState('');
   const inputRef = useRef(null);
   const handleChange = ( ) => {
-    setInValue(inputRef.current.value);
     updateInput(inputRef.current.value);
   };
   const handlePress = (e) => {

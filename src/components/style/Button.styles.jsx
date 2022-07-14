@@ -3,11 +3,14 @@ const Wrapper = styled.div`
   .styled-button{
     color: white;
     font-size: 20px;
-    padding: 10px 25px;
+    padding: 10px 30px;
     background-color: #A586FF;
     border: solid 1px #A586FF;
     border-radius: 5px;
     cursor: pointer;
+  }
+  .disable{
+    opacity:0.3;
   }
   .icon{
     min-width: 50px;

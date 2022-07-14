@@ -1,9 +1,60 @@
 import { useState, useRef } from "react";
 import Wrapper from "./style/Table.styles";
+import useHttp from "../hooks/use-http";
 
-const Table = ({ value = "lorem", className = '' }) => {
-  const [inValue, setInValue] = useState(null);
+const Table = ({ value, className = '', filter = null, searchNow , showDetail }) => {
+  const { isLoading, error, sendRequest: deletePokemon } = useHttp({
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }, () => {});
 
+  const { isLoading:isLoadingUpdatePokemon, error: errorUpdatePokemon, sendRequest: updatePokemon } = useHttp({
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }, () => {});
+
+  const editHandler = (val) => {    
+    showDetail('show_detail',val);
+  }
+
+  const deleteHandler = (val) => {
+    deletePokemon('https://bp-pokemons.herokuapp.com/'+val);    
+    showDetail('update_data');
+  }
+
+  let valueFiltered = value;
+  if (searchNow == true) {
+    valueFiltered = value.filter(pokemon => pokemon.name == filter);
+  }
+  let rows = valueFiltered.map((e) => {
+    return (
+      <tr key={e.id}>
+        <td>
+          {e.name}
+        </td>
+        <td>
+          <img className="image" src={e.image} />
+        </td>
+        <td>
+          {e.attack}
+        </td>
+        <td>
+          {e.defense}
+        </td>
+        <td>
+          <div className="icon-group">
+            <i className="icon-edit" onClick={() => editHandler(e)} />
+            <i className="icon-delete" onClick={() => deleteHandler(e.id)} />
+          </div>
+        </td>
+      </tr>
+    )
+  });
+  
   return (
     <Wrapper className={className}>
       <table className="styled-table">
@@ -27,26 +78,7 @@ const Table = ({ value = "lorem", className = '' }) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              Ivysaur
-            </td>
-            <td>
-              <img src={""} />
-            </td>
-            <td>
-              65
-            </td>
-            <td>
-              38
-            </td>
-            <td>
-              <div className="icon-group">
-                <i className="icon-edit" />
-                <i className="icon-delete" />
-              </div>
-            </td>
-          </tr>
+          {rows}
         </tbody>
       </table>
     </Wrapper>

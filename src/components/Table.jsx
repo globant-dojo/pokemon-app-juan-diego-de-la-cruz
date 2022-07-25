@@ -1,17 +1,9 @@
-import { useState, useRef } from "react";
 import Wrapper from "./style/Table.styles";
 import useHttp from "../hooks/use-http";
 
 const Table = ({ value, className = '', filter = null, searchNow , showDetail }) => {
-  const { isLoading, error, sendRequest: deletePokemon } = useHttp({
+  const { sendRequest: deletePokemon } = useHttp({
     method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }, () => {});
-
-  const { isLoading:isLoadingUpdatePokemon, error: errorUpdatePokemon, sendRequest: updatePokemon } = useHttp({
-    method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     }
@@ -27,8 +19,8 @@ const Table = ({ value, className = '', filter = null, searchNow , showDetail })
   }
 
   let valueFiltered = value;
-  if (searchNow == true) {
-    valueFiltered = value.filter(pokemon => pokemon.name == filter);
+  if (searchNow === true) {
+    valueFiltered = value.filter(pokemon => pokemon.name === filter);
   }
   let rows = valueFiltered.map((e) => {
     return (
@@ -37,7 +29,7 @@ const Table = ({ value, className = '', filter = null, searchNow , showDetail })
           {e.name}
         </td>
         <td>
-          <img className="image" src={e.image} />
+          <img className="image" src={e.image} alt={e.name} />
         </td>
         <td>
           {e.attack}

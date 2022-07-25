@@ -15,10 +15,10 @@ const Input = ({ text = "btn", hasIcon = false, vertical=true, placeholder='',up
 
   return (
     <Wrapper>
-      <div className={ vertical==true?" ":"input-element"}>
-        <Label text={text} className={hasIcon == true ? "label-for-input" : "label"} />
+      <div className={ vertical === true?" ":"input-element" }>
+        <Label text={text} className={hasIcon === true ? "label-for-input" : "label"} />
         <div className="input-container">
-          <input className={ hasIcon == true ? "input-field styled-icon" : "input-field input-regular"} 
+          <input className={ hasIcon === true ? "input-field styled-icon" : "input-field input-regular"} 
           type="text" placeholder={placeholder}
           ref={inputRef}
           onChange={handleChange}

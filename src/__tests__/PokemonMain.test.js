@@ -1,7 +1,7 @@
 import TestRenderer from 'react-test-renderer';
-import ProgressBar from '../components/ProgressBar';
+import PokemonMain from '../components/PokemonMain';
 
-test('ProgressBar component attributes should be', () => {
+test('PokemonMain component attributes should be', () => {
   const testRenderer = TestRenderer.create(<ProgressBar value={15} updateInput={ () =>{ } }/>);
   const testInstance = testRenderer.root;
   expect(testInstance.children[0].props.children.props.children[2].props.type).toEqual("range");

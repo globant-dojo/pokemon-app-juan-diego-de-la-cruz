@@ -39,5 +39,18 @@ const Wrapper = styled.div`
   .mb{
     margin-bottom: 15px;
   }
+
+  @media only screen and (max-width: 600px) {
+    .styled-button {
+      font-size: 12px;
+      padding-left: 35px;
+    }
+  }
+  @media only screen and (max-width: 359px) {
+    .styled-button{
+      font-size: 9px;
+      padding-left: 25px;
+    }
+  }
 `;
 export default Wrapper;

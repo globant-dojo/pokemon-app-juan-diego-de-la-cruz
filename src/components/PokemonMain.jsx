@@ -21,7 +21,7 @@ const PokemonMain = () => {
     setPokemons(loadedPokemons);
   }
 
-  const { isLoading, error, sendRequest: fetchPokemons } = useHttp({ url: 'https://bp-pokemons.herokuapp.com/?idAuthor=1' }, transformPokemons);
+  const {sendRequest: fetchPokemons } = useHttp({ url: 'https://bp-pokemons.herokuapp.com/?idAuthor=1' }, transformPokemons);
   const [showDetail, setShowDetail] = useState(false);
   const [textSearch, setTextSearch] = useState('');
   const handlerDetail = (val = '',data = null) => {
@@ -57,7 +57,7 @@ const PokemonMain = () => {
       setRefreshData(false);
       setSearchNow(false);
     };
-  }, [fetchPokemons, textSearch, refreshData]);
+  }, [textSearch, refreshData]);
 
   const updateTitle = (val) => {
 

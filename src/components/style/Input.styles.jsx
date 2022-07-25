@@ -36,5 +36,22 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
   }
+  @media only screen and (max-width: 600px) {
+    .styled-icon {
+      width: 85%;
+      font-size: 12px;
+    }
+    .label-for-input{
+      font-size: 12px;
+    }
+  }
+  @media only screen and (max-width: 359px) {
+    .styled-icon{
+      font-size: 9px;
+    }
+    .label-for-input{
+      font-size: 9px;
+    }
+  }
 `;
 export default Wrapper;

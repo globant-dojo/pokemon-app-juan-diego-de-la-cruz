@@ -47,5 +47,15 @@ const Wrapper = styled.div`
     display: flex;
     height: 25px!important;
   }
+  @media only screen and (max-width: 600px) {
+    th,td{
+      font-size: 12px;
+    }
+  }
+  @media only screen and (max-width: 359px) {
+    th,td{
+      font-size: 9px;
+    }
+  }
 `;
 export default Wrapper;

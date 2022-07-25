@@ -1,6 +1,6 @@
 import Wrapper from "./style/Button.styles";
 
-const Button = ({ value = "btn", className = 'icon', mb, showDetail, disable = false }) => {
+const Button = ({ value = "btn", className = 'icon', mb = null, showDetail =null, disable = false }) => {
   const executeMethod = () => {
     showDetail(value);
   }

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Wrapper from "./style/PokemonMain.styles";
 import Input from "./Input";
 import Button from "./Button";
@@ -26,18 +26,18 @@ const PokemonMain = () => {
   const [textSearch, setTextSearch] = useState('');
   const handlerDetail = (val = '',data = null) => {
     console.log("HANDLER_DETAIL", val);
-    if (showDetail == true) {
+    if (showDetail === true) {
       setShowDetail(false);
-      if (val == 'update_data') {
+      if (val === 'update_data') {
         setRefreshData(true);
         fetchPokemons();
       }
     } else {
-      if (val == 'update_data') {
+      if (val === 'update_data') {
         setRefreshData(true);
         fetchPokemons();
       } else {
-        if(val == 'show_detail'){
+        if(val === 'show_detail'){
           console.log("POGGIES_SHOW DETAIL EDIT",data==null?'':data);
           setCreateOp(false);
           setSpecificPokemon(data);
@@ -57,7 +57,7 @@ const PokemonMain = () => {
       setRefreshData(false);
       setSearchNow(false);
     };
-  }, [textSearch, refreshData]);
+  }, [fetchPokemons, textSearch, refreshData]);
 
   const updateTitle = (val) => {
 
@@ -78,11 +78,11 @@ const PokemonMain = () => {
         <Table className={"w-100"} value={pokemons} filter={textSearch} searchNow={searchNow} showDetail={handlerDetail} />
       </div>
       {
-        showDetail == true ?
+        showDetail === true ?
           <div className="main-container">
             
             {
-              createOp==true?
+              createOp === true?
               <PokemonDetail className={"w-100"} title={"Nuevo Pokemon"} showDetail={handlerDetail}/>:
               <PokemonDetail className={"w-100"} title={"Actualiza Pokemon"} showDetail={handlerDetail} editPokemon={specificPokemon}/>
             }
